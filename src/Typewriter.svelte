@@ -6,37 +6,16 @@
 	export let cascade = false
 	export let loop = false
 	export let loopRandom = false
-	export let scramble = false
-	export let scrambleSlowdown = scramble ? true : false
+    export let scramble = false
+    export let scrambleSlowdown = scramble ? true : false
 	export let cursor = true
 	export let delayWithCursor = false
 	export let delay = delayWithCursor ? 3000 : 0
 
 	const dispatch = createEventDispatcher()
-
-	$: options = {
-		interval,
-		cascade,
-		loop,
-		loopRandom,
-		scramble,
-		scrambleSlowdown,
-		cursor,
-		delay,
-		delayWithCursor,
-		dispatch
-	}
+  
+    $: options = { interval, cascade, loop, loopRandom, scramble, scrambleSlowdown, cursor, delay, delayWithCursor, dispatch }
 </script>
-
-<div
-	use:typewriter={options}
-	class="typewriter-container"
-	class:cursor
-	class:delay={options.delay > 0 && !delayWithCursor}
-	style="--cursor-color: {typeof cursor === 'string' ? cursor : 'black'}"
->
-	<slot />
-</div>
 
 <style>
 	@keyframes cursorFade {
@@ -69,3 +48,13 @@
 		visibility: hidden;
 	}
 </style>
+
+<div
+    use:typewriter={options}
+    class="typewriter-container"
+    class:cursor
+	class:delay={options.delay > 0 && !delayWithCursor}
+    style="--cursor-color: {typeof cursor === 'string' ? cursor : 'black'}"
+>
+    <slot />
+</div>

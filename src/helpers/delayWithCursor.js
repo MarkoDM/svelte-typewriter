@@ -1,4 +1,3 @@
-
 import { sleep } from './sleep'
 import { getFirstNonStaticChild } from '../helpers/getFirstNonStaticChild'
 
