@@ -1,5 +1,6 @@
 import { getElements } from '../helpers/getElements'
 import { makeNestedStaticElementsVisible } from '../helpers/makeNestedStaticElementsVisible'
+import { delayWithCursor } from '../helpers/delayWithCursor'
 
 const getSelectedMode = async options => {
 	if (options.loop || options.loopRandom) {
@@ -16,7 +17,10 @@ const typewriter = async (node, options) => {
 	makeNestedStaticElementsVisible(node)
 	const mode = await getSelectedMode(options)
 	const elements = getElements(node, { parentElement: node, ...options })
-	if (options.delay > 0) {
+	if (options.delayWithCursor && options.cascade) {
+		await delayWithCursor(node, options.delay);
+	}
+	else if (options.delay > 0) {
 		const { sleep } = await import('../helpers/sleep')
 		await sleep(options.delay)
 		node.classList.remove('delay')

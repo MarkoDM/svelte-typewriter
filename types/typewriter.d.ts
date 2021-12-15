@@ -10,6 +10,7 @@ interface TypewriterOptions {
 	loopRandom: boolean | number
 	cursor: boolean | string
 	delay: number
+	delayWithCursor: boolean
 	dispatch: (type: string, detail?: any) => void
 }
 
