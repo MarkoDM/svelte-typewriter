@@ -9,7 +9,7 @@
   export let scrambleSlowdown = true
   export let cursor = true
   export let delayWithCursor = false
-  export let delay = delayWithCursor ? 3000 : 0
+  export let delay = 0
 
   $: props = { interval, cascade, loop, loopRandom, scramble, scrambleSlowdown, cursor, delay, delayWithCursor }
 </script>
