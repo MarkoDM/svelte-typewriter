@@ -73,10 +73,17 @@
 <hr>
 
 <pre>
-  &lt;Typewriter cascade delayWithCursor=&lcub;true&rcub; /&gt;
+  &lt;Typewriter cascade interval=&lcub;80&rcub; delay=&lcub;3000&rcub; cursor='limegreen' on:done=&lcub;() =&gt; console.log('Hello World!')&rcub; delayWithCursor=&lcub;true&rcub; /&gt;
 </pre>
 
-<TypewriterControls cascade delayWithCursor={true}>
+<TypewriterControls
+  cascade
+  interval={80}
+  delay={3000}
+  cursor='limegreen'
+  on:done={() => console.log('Hello World!')}
+  delayWithCursor={true}
+>
   <slot />
 </TypewriterControls>
 
